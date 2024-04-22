@@ -2,9 +2,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div style={{ padding: '10rem 3rem', backgroundColor: '#eceef3', borderRadius: '3rem', marginTop: '2rem' }}>
+    <footer
+      style={{ padding: '10rem 3rem', backgroundColor: '#eceef3', borderRadius: '3rem 3rem 0 0', marginTop: '2rem' }}
+    >
       footer
-    </div>
+    </footer>
   );
 };
 

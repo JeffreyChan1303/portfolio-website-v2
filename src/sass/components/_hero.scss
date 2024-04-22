@@ -1,5 +1,5 @@
 .hero {
-  padding-top: $hero-gap;
+  padding-top: var(--hero-gap);
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -21,19 +21,19 @@
   margin-top: 1rem;
 }
 
-@media (min-width: $layout-breakpoint-sm) {
+@media (min-width: map-get($breakpoints, 'sm')) {
   .hero-title {
     font-size: 3rem;
   }
 }
 
-@media (min-width: $layout-breakpoint-md) {
+@media (min-width: map-get($breakpoints, 'md')) {
   .hero-title {
     font-size: 4rem;
   }
 }
 
-@media (min-width: $layout-breakpoint-lg) {
+@media (min-width: map-get($breakpoints, 'lg')) {
   .hero-title {
     font-size: 6rem;
   }
@@ -41,14 +41,34 @@
 
 
 
+.hero-badge {
+  position: absolute;
+}
+
 .social-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem auto;
+
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(173, 216, 230, 0.75);
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  z-index: -1;
+  transition: ease-in-out 0.3s;
+}
+
+.social-link:hover::before {
+  scale: 1.55;
 }
 .social-link {
-  background-color: rgba(173, 216, 230, 0.75);
+  position: absolute;
+  // background-color: rgba(173, 216, 230, 0.75);
   height: 5rem;
   width: 5rem;
   display: flex;
@@ -56,4 +76,5 @@
   align-items: center;
   border-radius: 50%;
 }
+
 

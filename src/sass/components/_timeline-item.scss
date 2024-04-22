@@ -1,0 +1,53 @@
+.timeline-item {
+  // grid-template-columns: 1fr;
+  margin: 2rem auto;
+  border: 5px solid #000;
+}
+@media (min-width: map-get($breakpoints, 'md')) {
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 30px 1fr;
+  gap: 2rem;
+  }
+  .timeline-item--left {
+    grid-template-areas: 'content timeline opposite';
+  }
+  .timeline-item--right {
+    grid-template-areas: 'opposite timeline content';
+  }
+}
+.grid__timeline-content {
+  grid-area: content;
+  padding: 1rem 1.5rem;
+  border: 5px solid $black;
+  border-radius: 2rem;
+  background-color: $black;
+  color: $white;
+}
+.grid__timeline-opposite {
+  grid-area: opposite;
+}
+.grid__timeline {
+  grid-area: timeline;
+  width: 30px;
+}
+
+.timeline-content--title {
+  font-size: 2rem;
+}
+.timeline-content--subtitle {
+  font-size: 1.25rem;
+}
+
+.timelien-content--description {
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  opacity:0;
+  // transition-duration: 5s;
+  transform-origin: left;
+}

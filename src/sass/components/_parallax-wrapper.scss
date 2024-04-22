@@ -1,0 +1,28 @@
+.parallax-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+
+
+  overflow: hidden;
+  z-index: -1;
+}
+
+svg.squiggle {
+  // position: relative;
+  width: 100%;
+  height: auto;
+  // object-fit: contain;
+  // height: 100%;
+  
+}
+
+svg.squiggle path {
+  stroke: lightgreen;
+  stroke-width: 1.5rem;
+  stroke-linecap: round;
+  // stroke-dasharray: 30;
+}
