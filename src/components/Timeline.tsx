@@ -23,44 +23,42 @@ Items I'll probably have on this timeline
 - summer 2024: athenahealth
 
 */
+const timelineItemArray: Array<{
+  title: string;
+  subtitle: string;
+  description: string;
+  orientation: TimelineItemOrientation;
+}> = [
+  {
+    title: 'University of Massachusetts Lowell',
+    subtitle: '',
+    description: 'Currently pursinig a Bachelor of Science in Computer science, and a minor in mathematics.',
+    orientation: TimelineItemOrientation.LEFT
+  },
+  { title: 'Title', subtitle: 'Subtitle', description: 'Description', orientation: TimelineItemOrientation.RIGHT },
+  { title: 'Title', subtitle: 'Subtitle', description: 'Description', orientation: TimelineItemOrientation.LEFT },
+  { title: 'Title', subtitle: 'Subtitle', description: 'Description', orientation: TimelineItemOrientation.RIGHT },
+  { title: 'Title', subtitle: 'Subtitle', description: 'Description', orientation: TimelineItemOrientation.LEFT },
+  { title: 'Title', subtitle: 'Subtitle', description: 'Description', orientation: TimelineItemOrientation.RIGHT }
+];
 
 const Timeline: React.FC = () => {
-  const scrollProgressYRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollProgressYRef,
-    offset: ['start start', 'end end']
-  });
-  const scaleY = useSpring(scrollYProgress);
-
   return (
     <div className='timeline'>
-      {/* <motion.div className='timeline-line'>
-        <motion.div className='timeline-line-progress' style={{ scaleY }}></motion.div>
-      </motion.div> */}
-      <TimelineItem
-        orientation={TimelineItemOrientation.LEFT}
-        title='Title'
-        subtitle='Subtitle'
-        description='Description'
-      />
-      <TimelineItem
-        orientation={TimelineItemOrientation.RIGHT}
-        title='Title'
-        subtitle='Subtitle'
-        description='Description'
-      />
-      <TimelineItem
-        orientation={TimelineItemOrientation.LEFT}
-        title='Title'
-        subtitle='Subtitle'
-        description='Description'
-      />
-      <TimelineItem
-        orientation={TimelineItemOrientation.RIGHT}
-        title='Title'
-        subtitle='Subtitle'
-        description='Description'
-      />
+      <h1 id='education' style={{ fontSize: '5rem', lineHeight: '5.5rem' }}>
+        My Education
+      </h1>
+
+      {timelineItemArray.map((item, index) => (
+        <TimelineItem
+          key={index}
+          orientation={item.orientation}
+          title={item.title}
+          subtitle={item.subtitle}
+          description={item.description}
+          imgSrc=''
+        />
+      ))}
     </div>
   );
 };

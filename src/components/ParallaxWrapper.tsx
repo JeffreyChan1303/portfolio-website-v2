@@ -22,7 +22,7 @@ const ParallaxWrapper: React.FC = () => {
         style={{ y, transitionDuration: '3' }}
         initial={{ opacity: 0, filter: 'blur(100px)' }}
         animate={{ opacity: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 3 }}
         className='squiggle'
         width='1000'
         height='2500'

@@ -2,7 +2,7 @@ body {
   position: relative;
   background: $background;
 
-  padding: 0 1rem;
+  padding: 0 $base-padding-x;
 
   scroll-behavior: smooth;
 }

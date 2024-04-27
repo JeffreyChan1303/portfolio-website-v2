@@ -24,8 +24,16 @@ $pink: #edd9f2;
 $sky: #c5f0fd;
 $green: #bbe6ac;
 
+
+$base-padding-x: clamp(20px, 5vw, 5vw);
+$base-padding-y: clamp(30px, 4vw, 50px);
+
 // responsive variables
 :root {
+  // --base-padding-x: max(5vw, 40px);
+  // --base-padding-y: clamp(30px, 4vw, 50px);
+
+
   --body-font-size: 0.75rem; /* 12px */
   --body-line-height: 1rem; /* 16px */
   --hero-gap: 10rem;

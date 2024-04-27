@@ -1,5 +1,6 @@
 .hero {
   padding-top: var(--hero-gap);
+  // height: 100vh;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +56,6 @@
 .social-link::before {
   content: "";
   position: absolute;
-  background-color: rgba(173, 216, 230, 0.75);
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
@@ -75,6 +75,31 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  transition-duration: 300ms;
+}
+
+.hero-education::before {
+  background-color: #edf3fe;
+}
+.hero-github::before {
+  background-color: #fee4ee;
+
+}
+.hero-linkedin::before {
+  background-color: #e5f1f8;
+  // opacity: 0.9;
+}
+
+.hero-experience::before {
+  background-color: #f5ebfe;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid black;
 }
 
 

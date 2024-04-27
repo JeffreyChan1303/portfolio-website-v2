@@ -7,6 +7,7 @@ interface TimelineItemProps {
   title: string;
   subtitle: string;
   description: string;
+  imgSrc: string;
 }
 
 const buttonVariants = {
@@ -17,24 +18,25 @@ const arrowVariants = {
   hover: { x: 0, width: 'max-content', opacity: 1, marginRight: '.5rem' }
 };
 
-const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitle, description }) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitle, description, imgSrc }) => {
   const inViewRef = useRef(null);
-  const isInView = useInView(inViewRef, {});
+  const isInView = useInView(inViewRef, { once: true });
 
   useEffect(() => {
     console.log('Element is in view: ', isInView);
   }, [isInView]);
 
   return (
-    <div
+    <motion.div
       ref={inViewRef}
       className={
         'timeline-item ' +
         (orientation === TimelineItemOrientation.LEFT ? 'timeline-item--left' : 'timeline-item--right')
       }
     >
-      <div className='timeline-item-opposite grid__timeline-opposite'> </div>
-      <div className='grid__timeline'></div>
+      <div className='timeline-item-opposite grid__timeline-opposite'>
+        <motion.img src={imgSrc} alt='timeline item image' />
+      </div>
       <div
         style={{
           transform: isInView ? 'none' : 'translateX(-200px)',
@@ -58,7 +60,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitl
           About me
         </motion.a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
