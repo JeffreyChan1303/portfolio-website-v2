@@ -7,16 +7,22 @@
 }
 .nav {
   padding: 0 1.5rem;
-  background-color: rgba(232, 234, 241, 0.75);
-
-  border-radius: 10rem;
-  backdrop-filter: blur(10px);
+  // background-color: rgba(232, 234, 241, 0.75);
+  // border-radius: 10rem;
+  // backdrop-filter: blur(10px);
 
 
   height: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 500;
+  // color: #333;
 
 }
 

@@ -1,0 +1,46 @@
+footer {
+  padding: 3rem 3rem 8rem;
+  background-color: #eceef3;
+  // border-radius: 3rem 3rem 0 0;
+  margin-top: 5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-me-email {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  padding: 0.625em 1.25em;
+  font-size: 1.25em;
+  background: transparent;
+  border-radius: 2rem;
+  background-color: white;
+}
+
+.footer__social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+
+.footer__link {
+  position: relative;
+}
+.footer__link::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  background-color: black;
+  transition: ease-in-out 300ms;
+}
+.footer__link:hover::after {
+  width: 100%;
+}

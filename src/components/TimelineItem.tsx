@@ -8,6 +8,8 @@ interface TimelineItemProps {
   subtitle: string;
   description: string;
   imgSrc: string;
+  linkText?: string;
+  linkHref?: string;
 }
 
 const buttonVariants = {
@@ -18,7 +20,15 @@ const arrowVariants = {
   hover: { x: 0, width: 'max-content', opacity: 1, marginRight: '.5rem' }
 };
 
-const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitle, description, imgSrc }) => {
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  orientation,
+  title,
+  subtitle,
+  description,
+  imgSrc,
+  linkText,
+  linkHref
+}) => {
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { once: true });
 
@@ -34,9 +44,14 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitl
         (orientation === TimelineItemOrientation.LEFT ? 'timeline-item--left' : 'timeline-item--right')
       }
     >
-      <div className='timeline-item-opposite grid__timeline-opposite'>
-        <motion.img src={imgSrc} alt='timeline item image' />
-      </div>
+      <a
+        className='timeline-item-opposite grid__timeline-opposite'
+        href={linkHref}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <motion.img className='timeline-img' src={imgSrc} alt='timeline item image' />
+      </a>
       <div
         style={{
           transform: isInView ? 'none' : 'translateX(-200px)',
@@ -46,19 +61,28 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ orientation, title, subtitl
         className='timeline-item-content grid__timeline-content'
       >
         <h1 className='timeline-content--title'>{title}</h1>
-        <hr></hr>
         <h3 className='timeline-content--subtitle'>{subtitle}</h3>
+        <hr></hr>
         <p className='timeline-content--description'>{description}</p>
         {/* call to action */}
-        <motion.a variants={buttonVariants} whileHover='hover' className='button' href='/'>
-          <motion.span variants={arrowVariants} transition={{ ease: 'easeInOut' }} className='arrow'>
-            <img
-              src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgMTJIMTkiIHN0cm9rZT0iIzExMjk2OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEzIDE4TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMyA2TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
-              alt='Arrow'
-            />
-          </motion.span>
-          About me
-        </motion.a>
+        {linkText && linkHref && (
+          <motion.a
+            variants={buttonVariants}
+            whileHover='hover'
+            className='button'
+            href={linkHref}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <motion.span variants={arrowVariants} transition={{ ease: 'easeInOut' }} className='arrow'>
+              <img
+                src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgMTJIMTkiIHN0cm9rZT0iIzExMjk2OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEzIDE4TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMyA2TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
+                alt='Arrow'
+              />
+            </motion.span>
+            {linkText}
+          </motion.a>
+        )}
       </div>
     </motion.div>
   );

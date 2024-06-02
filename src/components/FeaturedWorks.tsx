@@ -6,32 +6,46 @@ const featuredWorksArray: Array<{
   title: string;
   tags: Array<string>;
   imgSrc: string;
+  link: string;
 }> = [
-  { title: 'Project Tracker', tags: ['React', 'Node.js', 'MongoDB'], imgSrc: '' },
   {
-    title: 'Research Internship',
-    tags: ['Python', 'Machine Learning'],
-    imgSrc: ''
-  },
-  { title: 'Full-Stack Development', tags: ['React', 'Node.js', 'MongoDB'], imgSrc: '' },
-  {
-    title: 'Web Development Co-op',
+    title: 'Project Tracker',
     tags: ['React', 'Node.js', 'MongoDB'],
-    imgSrc: ''
+    imgSrc: 'trackMyProjects.png',
+    link: 'https://www.trackmyprojects.org'
+  },
+  {
+    title: 'Network Security Research Paper',
+    tags: ['Python', 'matplotlib', 'pandas'],
+    imgSrc: 'network_security_img.png',
+    link: 'https://submit.petsymposium.org/2024.1/paper/54?cap=hcav54svgRTisvnBsTLSowtQwwTayc'
+  },
+  {
+    title: 'Research Data Collection Tool',
+    tags: ['Angular', 'Node.js', 'MySql'],
+    imgSrc: 'medtask_img.png',
+    link: '/'
+  },
+  {
+    title: 'MITLL DTS Conference Website',
+    tags: ['Druple', 'HTML', 'CSS', 'JavaScript'],
+    imgSrc: 'DTS_img.png',
+    link: 'https://www.ll.mit.edu/conferences-events/2025/03/defense-technology-seminar-dts-military-officers-2025'
   }
 ];
 
 const FeaturedWorks = () => {
   return (
-    <motion.div id='featured-works'>
-      <div className='featured-works-title'>Featured Work</div>
-      <div className='featured-works-list'>
-        {featuredWorksArray.map((work, index) => (
-          <FeaturedWorkItem key={index} title={work.title} tags={work.tags} imgSrc={work.imgSrc} href='/' />
-        ))}
-      </div>
-      <div className='featured-works-cta'> view all projects</div>
-    </motion.div>
+    <section id='works'>
+      <motion.div id='featured-works'>
+        <div className='featured-works-title'>Featured Work</div>
+        <div className='featured-works-list'>
+          {featuredWorksArray.map((work, index) => (
+            <FeaturedWorkItem key={index} title={work.title} tags={work.tags} imgSrc={work.imgSrc} href={work.link} />
+          ))}
+        </div>
+      </motion.div>
+    </section>
   );
 };
 
