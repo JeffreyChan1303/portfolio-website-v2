@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import TimelineItem from './TimelineItem';
 import { TimelineItemOrientation } from '../types';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useInView } from 'framer-motion';
 
 // interface TimelineProps {
 //   children: ReactNode;
@@ -57,7 +57,7 @@ const timelineItemArray: Array<{
     description: `This is something I worked on when I couldn't find a job and I wanted to keep my skills sharp. 
     This is also one of the projects I'm the most proud of because of the time I spent on it.`,
     orientation: TimelineItemOrientation.LEFT,
-    imgSrc: 'trackMyProjects.png',
+    imgSrc: 'trackMyProjectsDashboard.png',
     linkText: 'View Project Tracker',
     linkHref: 'https://www.trackmyprojects.org/'
   },
@@ -92,7 +92,7 @@ const timelineItemArray: Array<{
     subtitle: 'January 2024 - May 2024',
     description: 'Description',
     orientation: TimelineItemOrientation.LEFT,
-    imgSrc: 'ipo_img.jpeg'
+    imgSrc: 'X_logo.svg'
   },
   {
     title: 'MIT Lincoln Laboratory Web Development Co-op',
@@ -115,12 +115,66 @@ const timelineItemArray: Array<{
 ];
 
 const Timeline: React.FC = () => {
+  const inViewRef = useRef(null);
+  const isInView = useInView(inViewRef, { once: true });
+
   return (
     <section id='experience'>
       <div className='timeline'>
-        <h1 style={{ fontSize: '5rem', lineHeight: '5.5rem' }}>
-          My Journey <span style={{ fontSize: '4rem' }}>and</span> Experience
-        </h1>
+        <div ref={inViewRef}>
+          <div style={{ overflow: 'hidden' }}>
+            <motion.h1
+              style={{
+                fontSize: '8vw',
+                lineHeight: '9vw',
+                y: '10vw',
+                transition: 'ease-in-out .5s'
+              }}
+              transition={{
+                x: { delay: 0.75 },
+                y: { delay: 0.25 }
+              }}
+              animate={isInView && { x: '6vw', y: '0px' }}
+            >
+              Journey
+            </motion.h1>
+          </div>
+          <div
+            style={{
+              overflow: 'hidden'
+            }}
+          >
+            <motion.h2
+              initial={{ x: 'calc(6vw)', y: '10vw' }}
+              style={{ transition: 'ease-in-out .5s', fontSize: '4vw', lineHeight: '4.5vw' }}
+              transition={{
+                x: { delay: 0.75 },
+                y: { delay: 0.25 }
+              }}
+              animate={isInView && { x: '24vw', y: '0' }}
+            >
+              and
+            </motion.h2>
+          </div>
+          <div style={{ overflow: 'hidden' }}>
+            <motion.h1
+              // transition={{ duration: 1, ease: 'easeInOut' }}
+              style={{
+                fontSize: '8vw',
+                lineHeight: '9vw',
+                transition: 'ease-in-out .5s',
+                y: '-10vw'
+              }}
+              transition={{
+                x: { delay: 0.75 },
+                y: { delay: 0.25 }
+              }}
+              animate={isInView && { x: '18vw', y: '0' }}
+            >
+              Experience
+            </motion.h1>
+          </div>
+        </div>
 
         {timelineItemArray.map((item, index) => (
           <TimelineItem

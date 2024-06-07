@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <Hero />
-      <ParallaxWrapper />
+      {/* <ParallaxWrapper /> */}
       <Timeline />
       <FeaturedWorks />
       <Footer />

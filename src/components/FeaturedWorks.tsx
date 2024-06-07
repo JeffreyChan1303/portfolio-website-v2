@@ -11,11 +11,11 @@ const featuredWorksArray: Array<{
   {
     title: 'Project Tracker',
     tags: ['React', 'Node.js', 'MongoDB'],
-    imgSrc: 'trackMyProjects.png',
+    imgSrc: 'trackMyProjectsDashboard.png',
     link: 'https://www.trackmyprojects.org'
   },
   {
-    title: 'Network Security Research Paper',
+    title: 'Network Security Research',
     tags: ['Python', 'matplotlib', 'pandas'],
     imgSrc: 'network_security_img.png',
     link: 'https://submit.petsymposium.org/2024.1/paper/54?cap=hcav54svgRTisvnBsTLSowtQwwTayc'
@@ -38,7 +38,7 @@ const FeaturedWorks = () => {
   return (
     <section id='works'>
       <motion.div id='featured-works'>
-        <div className='featured-works-title'>Featured Work</div>
+        <div className='featured-works-title'>Featured Works</div>
         <div className='featured-works-list'>
           {featuredWorksArray.map((work, index) => (
             <FeaturedWorkItem key={index} title={work.title} tags={work.tags} imgSrc={work.imgSrc} href={work.link} />

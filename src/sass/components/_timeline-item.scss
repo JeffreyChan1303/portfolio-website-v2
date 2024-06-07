@@ -1,7 +1,8 @@
 .timeline-item {
   // grid-template-columns: 1fr;
   margin: 2rem auto;
-  border: 5px solid #000;
+  border: 1px solid #000;
+  border-radius: 2vw;
   // grid-column: 1 / span 12;
 }
 @media (min-width: map-get($breakpoints, 'md')) {
@@ -33,7 +34,7 @@
   grid-area: opposite;
   padding-top: 65%;
 
-  border: 1px solid red;
+  border: 1px solid black;
   border-radius: 15px;
   margin: 1.5rem;
 }
