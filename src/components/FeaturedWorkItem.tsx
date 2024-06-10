@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 interface FeaturedWorkItemProps {
   title: string;
@@ -13,8 +13,19 @@ const arrowVariants = {
 };
 
 const FeaturedWorkItem: React.FC<FeaturedWorkItemProps> = ({ title, tags, imgSrc, href }) => {
+  const inViewRef = useRef(null);
+  const isInView = useInView(inViewRef, { once: true });
+
   return (
-    <motion.a whileHover='linkHover' className='project-item' href={href} target='_blank' rel='noopener noreferrer'>
+    <motion.a
+      ref={inViewRef}
+      style={{ opacity: isInView ? 1 : 0, transition: 'ease-in-out 500ms' }}
+      whileHover='linkHover'
+      className='project-item'
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       <motion.div className='project-item-main'>
         <motion.img
           whileHover={{ scale: 0.9 }}

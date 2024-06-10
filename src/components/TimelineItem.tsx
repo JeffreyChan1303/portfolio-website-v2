@@ -50,10 +50,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { once: true });
 
-  useEffect(() => {
-    console.log('Element is in view: ', isInView);
-  }, [isInView]);
-
   return (
     <motion.div
       ref={inViewRef}
@@ -61,6 +57,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
         'timeline-item ' +
         (orientation === TimelineItemOrientation.LEFT ? 'timeline-item--left' : 'timeline-item--right')
       }
+      style={{ opacity: isInView ? 1 : 0, transition: 'ease-in-out 500ms' }}
     >
       <a
         className='timeline-item-opposite grid__timeline-opposite'
@@ -70,7 +67,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       >
         {linkHref ? (
           <motion.img
-            whileHover={{ scale: 0.95, filter: ['blur(0px)', 'blur(2px)', 'blur(0px)'] }}
+            whileHover={{ scale: 0.95 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className='timeline-img'
             src={imgSrc}

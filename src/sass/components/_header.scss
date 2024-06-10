@@ -7,16 +7,31 @@
 }
 .nav {
   padding: 0 1.5rem;
-  // background-color: rgba(232, 234, 241, 0.75);
-  // border-radius: 10rem;
-  // backdrop-filter: blur(10px);
-
 
   height: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+}
+
+.nav-button {
+  position: relative;
+  padding: .5rem 1.5rem;
+  border-radius: 3rem;
+  transition: ease-in-out .4s;
+
+  font-size: .875em;
+  background-color: #eceef3;
+  color: black;
+  overflow: hidden;
+
+
+}
+
+.nav-button:hover {
+  background-color: #dcdfe7;
+  // background: left;
 }
 
 .logo {
@@ -31,5 +46,5 @@
   gap: 1.6rem;
 }
 .nav-wrapper {
-  padding: 1.2rem 1.6rem;
+  padding: 1rem 1.6rem .4rem;
 }

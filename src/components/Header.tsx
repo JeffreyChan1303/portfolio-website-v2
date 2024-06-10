@@ -15,17 +15,17 @@ const Header = () => {
     >
       <div className='nav-wrapper'>
         <nav className='nav'>
-          <a className='logo' href='#'>
+          <motion.a whileHover={{ scale: 1.05 }} className='logo' href='#'>
             Jeffrey Chan
-          </a>
+          </motion.a>
           <div className='right-menu'>
-            <motion.a whileHover={{ scale: 1.1 }} href='#experience'>
+            <motion.a className='nav-button' href='#experience'>
               My Journey
             </motion.a>
-            <motion.a whileHover={{ scale: 1.1 }} href='#works'>
+            <motion.a className='nav-button' href='#works'>
               Featured Works
             </motion.a>
-            <motion.a whileHover={{ scale: 1.1 }} href='#footer'>
+            <motion.a className='nav-button' href='#footer'>
               Contact Me
             </motion.a>
           </div>
