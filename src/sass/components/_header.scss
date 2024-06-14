@@ -22,7 +22,9 @@
   transition: ease-in-out .4s;
 
   font-size: .875em;
-  background-color: #eceef3;
+  // background-color: #eceef3;
+  background-color: white;
+  border: #eceef3 1px solid;
   color: black;
   overflow: hidden;
 
@@ -30,7 +32,8 @@
 }
 
 .nav-button:hover {
-  background-color: #dcdfe7;
+  // background-color: #dcdfe7;
+  background-color: #eceef3;
   // background: left;
 }
 
