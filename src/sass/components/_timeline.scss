@@ -8,4 +8,18 @@
   // grid-template-columns: repeat(12, minmax(0, 1fr));
   // column-gap: 2vw;
 }
-
+// 
+.timeline-title {
+  font-size: max(8vw, 3.5rem);
+  line-height: max(9vw, 4rem);
+  transition: ease-in-out .5s;
+  // transition-delay
+}
+.timeline-title__and {
+  transition: ease-in-out .5s;
+  font-size: max(4vw, 1.5rem);
+  line-height: 4.5vw 
+}
+.timeline-title__experience {
+  transform: translateY(min(-10vw, -5rem))
+}

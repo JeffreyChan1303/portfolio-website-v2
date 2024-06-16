@@ -31,19 +31,19 @@
 
 @media (min-width: map-get($breakpoints, 'sm')) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 
 @media (min-width: map-get($breakpoints, 'md')) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 
 @media (min-width: map-get($breakpoints, 'lg')) {
   .hero-title {
-    font-size: 6rem;
+    font-size: 6.5rem;
   }
 }
 
@@ -51,13 +51,23 @@
 
 .hero-badge {
   position: absolute;
+  z-index: 1;
+}
+@media (min-width: map-get($breakpoints, 'sm')) {
+  .hero-badge {
+    opacity: 0;
+  }
 }
 
 .social-links {
   height: 5rem;
   width: 5rem;
   margin: 2rem auto;
-
+}
+@media (max-width: map-get($breakpoints, 'sm')) {
+  .social-links {
+    padding-bottom: 14rem;
+  }
 }
 
 .social-link::before {
@@ -68,8 +78,14 @@
   border-radius: 50%;
   z-index: -1;
   transition: ease-in-out 0.3s;
+  scale: 1.55;
 }
 
+@media (min-width: map-get($breakpoints, 'sm')) {
+  .social-link::before {
+    scale: 1;
+  }
+}
 .social-link:hover::before {
   scale: 1.55;
 }

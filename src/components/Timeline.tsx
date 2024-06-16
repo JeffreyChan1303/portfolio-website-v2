@@ -1,28 +1,8 @@
 import React, { useRef } from 'react';
 import TimelineItem from './TimelineItem';
 import { TimelineItemOrientation } from '../types';
-import { motion, useScroll, useSpring, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
-// interface TimelineProps {
-//   children: ReactNode;
-// }
-
-/*
-Items I'll probably have on this timeline
-- high school mvrcs??
-- fitness staff
-- Education
-- Mechanical Engineering
-- Switch to Software Engineering
-- summer 2022: project tracker 
-- academic year 2022-2023 research intern
-- Athenahealth summer 2023
-- nov - may 2024: full-stack devel
-- jan - may 2024: research intern
-- feb - june 2024: mitll web dev co-op
-- summer 2024: athenahealth
-
-*/
 const timelineItemArray: Array<{
   title: string;
   subtitle: string;
@@ -124,12 +104,8 @@ const Timeline: React.FC = () => {
         <div ref={inViewRef}>
           <div style={{ overflow: 'hidden' }}>
             <motion.h1
-              style={{
-                fontSize: '8vw',
-                lineHeight: '9vw',
-                y: '10vw',
-                transition: 'ease-in-out .5s'
-              }}
+              initial={{ y: 'max(10vw, 5rem)' }}
+              className='timeline-title timeline-title__journey'
               transition={{
                 x: { delay: 0.75 },
                 y: { delay: 0.25 }
@@ -146,7 +122,7 @@ const Timeline: React.FC = () => {
           >
             <motion.h2
               initial={{ x: 'calc(6vw)', y: '10vw' }}
-              style={{ transition: 'ease-in-out .5s', fontSize: '4vw', lineHeight: '4.5vw' }}
+              className='timeline-title__and'
               transition={{
                 x: { delay: 0.75 },
                 y: { delay: 0.25 }
@@ -158,13 +134,7 @@ const Timeline: React.FC = () => {
           </div>
           <div style={{ overflow: 'hidden' }}>
             <motion.h1
-              // transition={{ duration: 1, ease: 'easeInOut' }}
-              style={{
-                fontSize: '8vw',
-                lineHeight: '9vw',
-                transition: 'ease-in-out .5s',
-                y: '-10vw'
-              }}
+              className='timeline-title timeline-title__experience'
               transition={{
                 x: { delay: 0.75 },
                 y: { delay: 0.25 }

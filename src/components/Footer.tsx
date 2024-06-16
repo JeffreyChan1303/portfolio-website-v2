@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const parentVariants = {
-  hidden: { opacity: 0 },
   visible: {
     transition: {
       staggerChildren: 0.1

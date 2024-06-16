@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { TimelineItemOrientation } from '../types';
-import { delay, motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 interface TimelineItemProps {
   orientation: TimelineItemOrientation;
