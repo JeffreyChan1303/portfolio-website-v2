@@ -21,7 +21,13 @@ const Footer = () => {
     <motion.footer variants={parentVariants} animate={isInView ? 'visible' : 'hidden'} id='footer'>
       <div ref={inViewRef} className='footer__overflow-hidden'>
         {/* This will open up a modal page to show credits */}
-        <motion.a variants={wordVariants} className='footer__link'>
+        <motion.a
+          variants={wordVariants}
+          className='footer__link'
+          href='https://github.com/JeffreyChan1303/portfolio-website-v2?tab=readme-ov-file#inspiration'
+          target='_blank'
+          rel='noreferrer noopener'
+        >
           Credits
         </motion.a>
       </div>
