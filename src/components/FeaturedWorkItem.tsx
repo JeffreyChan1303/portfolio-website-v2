@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface FeaturedWorkItemProps {
@@ -15,7 +15,18 @@ const arrowVariants = {
 const FeaturedWorkItem: React.FC<FeaturedWorkItemProps> = ({ title, tags, imgSrc, href }) => {
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { once: true });
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setViewWidth(window.innerWidth);
+    };
 
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <motion.a
       ref={inViewRef}
@@ -48,7 +59,8 @@ const FeaturedWorkItem: React.FC<FeaturedWorkItemProps> = ({ title, tags, imgSrc
             <img
               src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgMTJIMTkiIHN0cm9rZT0iIzExMjk2OSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEzIDE4TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMyA2TDE5IDEyIiBzdHJva2U9IiMxMTI5NjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
               alt='Arrow'
-              style={{ transform: 'scale(1.2)' }}
+              // style={{ transform: `scale(${viewWidth / 800})` }}
+              style={{ height: `${viewWidth / 35}px` }}
             />
           </motion.span>
           {title}

@@ -8,6 +8,6 @@ Just a simple website to showcase my work!
 * Typescript
 * SCSS
 
-### Inspiration
+### Credits & Inspiration
 Lusion's Website [Website Link](https://lusion.co/) <br>
 Rekhchand's Website [Website Link](https://rekhchandsahu.com/)
