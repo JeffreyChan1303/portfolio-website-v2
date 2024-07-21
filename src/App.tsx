@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
 import Timeline from './components/Timeline';
-import ParallaxWrapper from './components/ParallaxWrapper';
 import FeaturedWorks from './components/FeaturedWorks';
 
 function App() {

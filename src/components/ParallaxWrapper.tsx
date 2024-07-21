@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 const ParallaxWrapper: React.FC = () => {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, (value) => value * 300);
+  // const y = useTransform(scrollYProgress, (value) => value * 300);
   const pathRef = React.useRef<SVGPathElement>(null);
 
   useMotionValueEvent(scrollYProgress, 'change', (scrollYPercent) => {
